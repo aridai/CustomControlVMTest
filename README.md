@@ -57,3 +57,20 @@ Xamarin.FormsにおいてカスタムコントロールにViewModelを設定し�
 
 ↓ インテリセンスのサジェスト  
 <img width="480px" src="Intellisense.png"></img>
+
+## 使用ライブラリ
+
+* Xamarin.Forms
+  * https://www.nuget.org/packages/Xamarin.Forms/
+  * https://licenses.nuget.org/MIT
+* Xamarin.Essentials
+  * https://www.nuget.org/packages/Xamarin.Essentials/
+  * https://www.nuget.org/packages/Xamarin.Essentials/1.7.0/License
+* Prism.Forms
+  * https://www.nuget.org/packages/Prism.Forms/
+  * https://www.nuget.org/packages/Prism.Forms/8.1.97/License
+* Prism.Unity.Forms
+  * https://www.nuget.org/packages/Prism.Unity.Forms/
+  * https://www.nuget.org/packages/Prism.Unity.Forms/8.1.97/License
+
+(※ Prismの `AutowireViewModel` 機能を使用しているが、カスタムコントロールのコンストラクタで手動で `BindingContext` へのセットを行っても同様の挙動となる。)

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:local="clr-namespace:CustomControlVMTest"
+    x:Class="CustomControlVMTest.MainPage"
+    x:DataType="local:MainPageViewModel"
+    x:Name="Root"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <StackLayout Orientation="Vertical">
+
+        <Label Margin="4" TextColor="Black" Text="カスタムコントロールにViewModelをセットした場合のBindingの挙動" />
+
+        <Label Margin="8,8,8,0" TextColor="Black" Text="↓ プロパティ値を直打ちした場合" />
+        <local:MyView MyMsg="直打ちメッセージ" />
+
+        <Label Margin="8,8,8,0" TextColor="Black" Text="↓ 親のViewModelのプロパティをそのままBindingした場合" />
+        <local:MyView MyMsg="{Binding ParentMsg}" />
+
+        <Label Margin="8,8,8,0" TextColor="Black" Text="↓ 親のViewModelのプロパティをx:Reference経由でBindingした場合" />
+        <local:MyView MyMsg="{Binding Source={x:Reference Root}, Path=BindingContext.ParentMsg}" />
+
+        <Label Margin="8,8,8,0" TextColor="Black" Text="↓ 親のVMにも子のVMにも存在する (同名の) プロパティをBindingした場合" />
+        <local:MyView MyMsg="{Binding Hoge}" />
+
+        <Label Margin="8,8,8,0" TextColor="Black" Text="↓ 親のViewModelのプロパティをx:Reference経由でBindingした場合" />
+        <local:MyView MyMsg="{Binding Source={x:Reference Root}, Path=BindingContext.Hoge}" />
+
+    </StackLayout>
+
+</ContentPage>
